@@ -1,0 +1,6 @@
+=== dotfiles ===
+
+Uses GNU Stow – https://www.gnu.org/software/stow/
+
+Manually link cold.vim after doing :PlugInstall in vim
+ln -rs cold.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/
