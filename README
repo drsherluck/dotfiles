@@ -2,5 +2,12 @@
 
 Uses GNU Stow – https://www.gnu.org/software/stow/
 
-Manually link cold.vim after doing :PlugInstall in vim
+Clone the git repository and run install.sh
+
+=== manualy === 
+1. Clone the git repository
+2. Use stow to create symlinks
+stow i3 (vim tmux etc...)
+3. Manually link cold.vim after doing :PlugInstall in vim
 ln -rs cold.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/
+
