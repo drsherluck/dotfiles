@@ -65,7 +65,7 @@ let s:magenta = [ '#60a3bc', 66  ]
 let s:violet  = [ '#67e6dc', 51  ]
 let s:blue    = [ '#B3E5FC', 80  ]
 let s:cyan    = [ '#1DE9B6', 42  ]
-let s:green   = [ '#69F0AE', 84  ]
+let s:green   = [ '#69F0A3', 84  ]
 
 " Background and foreground
 let s:bg = s:base0

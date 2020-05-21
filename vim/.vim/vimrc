@@ -16,6 +16,14 @@ set cursorline
 " Default is 4000ms
 set updatetime=750 
 
+" Copy to main clipboard
+set clipboard=unnamedplus
+
+" Some color hack
+if &term =~ '256-color'
+	set t_ut=
+endif
+
 " Install vim-plug if it's not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -66,6 +74,11 @@ set termguicolors
 "hi! Normal guibg=NONE ctermbg=NONE
 "hi! NonTest guibg=NONE ctermbg=NONE
 
+" To bulk uppercase files
+" \ls | vim -
+" :%s/.*/\="mv -i ".submatch(0)." ".substitute(submatch(0), "\\<.", "\\u&",
+" "")/g
+" :w !sh
 
 " Formating etc.
 set formatoptions+=r
