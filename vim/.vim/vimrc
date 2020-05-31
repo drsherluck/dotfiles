@@ -84,7 +84,7 @@ set termguicolors
 set formatoptions+=r
 set formatoptions+=c
 set formatoptions+=o
-set foldmethod=indent
+set foldmethod=syntax
 
 " Unfold on open
 augroup OpenAllFoldsOnFileOpen
