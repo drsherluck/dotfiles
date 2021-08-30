@@ -22,7 +22,7 @@ set_prompt() {
 	local cyan='\[\e[36;1m\]'
 	local white='\[\e[37m\]'
 
-	prompt=""
+	prompt="$"
 
 	PS1="${bold}\u:${cyan}\W${reset}${bold}\$(git_branch) ${prompt} ${reset}"
 }

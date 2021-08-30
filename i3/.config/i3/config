@@ -53,10 +53,10 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec urxvt
 
 # start browser
-bindsym $mod+b exec chromium
+bindsym $mod+b exec firefox
 
 # kill focused window
 bindsym $mod+Shift+q kill
