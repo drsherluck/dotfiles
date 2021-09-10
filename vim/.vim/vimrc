@@ -40,10 +40,17 @@ call plug#begin('~/.vim/plugged')
 Plug 'ap/vim-css-color'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
+Plug 'udalov/kotlin-vim'
+"Plug 'jiangmiao/auto-pairs'
+Plug 'cormacrelf/vim-colors-github'
+Plug 'rakr/vim-two-firewatch'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Initialize plugin system
 call plug#end()
+
+" fzf search
+map ; :Files<CR>
 
 " lightline config
 " see https://github.com/itchyny/lightline.vim
@@ -64,12 +71,15 @@ let g:lightline = {
 set t_8f=[38;2;%lu;%lu;%lum
 set t_8b=[48;2;%lu;%lu;%lum
 
-" Set the colorscheme
-colorscheme cold
 
 " True colors set
 set t_Co=256
 set termguicolors
+
+" Set the colorscheme
+"set background=light
+"colo two-firewatch
+colo cold
 
 " Set the background to transparent (match terminal)
 "hi! Normal guibg=NONE ctermbg=NONE
@@ -93,7 +103,7 @@ augroup OpenAllFoldsOnFileOpen
 	autocmd BufRead * normal zR
 augroup END
 
-imap jk <ESC>
+"imap jk <ESC>
 
 " No cheating 
 " Only use hjkl

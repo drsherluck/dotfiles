@@ -62,18 +62,18 @@ let s:red     = [ '#ff5555', 1   ]
 let s:orange  = [ '#ffb86c', 173 ]
 let s:yellow  = [ '#ffeaa7', 221 ]
 let s:magenta = [ '#60a3bc', 66  ]
-let s:violet  = [ '#67e6dc', 51  ]
-let s:blue    = [ '#B3E5FC', 80  ]
-let s:cyan    = [ '#1DE9B6', 42  ]
-let s:green   = [ '#69F0A3', 84  ]
+let s:violet  = [ '#0fb9b1', 51  ]
+let s:blue    = [ '#0fb9b1', 80  ]
+let s:cyan    = [ '#079992', 42  ]
+let s:green   = [ '#20bf6b', 84  ]
 
 " Background and foreground
-let s:bg = s:base0
-let s:fg = s:base7
+let s:bg = s:base7
+let s:fg = s:base0
 
 call s:hi('Normal', s:fg, s:bg)
 call s:hi('Cursor', s:bg, s:fg)
-call s:hi('CursorLine', s:none, s:base3)
+call s:hi('CursorLine', s:none, s:none)
 call s:hi('CursorColumn', s:none, s:base2)
 call s:hi('LineNr', s:base6)
 call s:hi('CursorLineNr', s:bg, s:fg)
