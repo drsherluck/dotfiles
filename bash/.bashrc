@@ -27,11 +27,14 @@ set_prompt() {
 	PS1="${bold}\u:${cyan}\W${reset}${bold}\$(git_branch) ${prompt} ${reset}"
 }
 
+# Set docker host
+export DOCKER_HOST=tcp://127.0.0.1:2375
+
 set_prompt
 
 set -o vi
 
-cd ~
+#cd ~
 
 
 #-------------------------------------------------------------------------------- 
@@ -59,3 +62,4 @@ alias glo="git log --oneline"
 
 # General
 alias update="sudo pacman -Suy"
+

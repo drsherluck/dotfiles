@@ -1,6 +1,6 @@
 exec_always --no-startup-id feh --bg-fill ~/Pictures/waves.jpg
 # exec_always --no-startup-id ~/hiticker -s XVGBTC
-exec --no-startup-id redshift
+exec --no-startup-id redshift -l 52:4.37
 exec compton
 
 # i3 config file (v4)
@@ -15,7 +15,7 @@ exec compton
 #
 
 # hide_edge_borders both
-set $gap_width 4
+set $gap_width 4 # change to bigger later
 for_window [class="^.*"] border pixel 2
 gaps inner $gap_width
 gaps outer $gap_width
@@ -116,7 +116,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -240,4 +240,5 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 # Printscreen
 bindsym $mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png
-bindsym $mod+p exec scrot -s -e 'mv $f ~/Pictures/'
+bindsym $mod+Control+s exec maim -s ~/Pictures/screenshots/$(date +%F-%T).png
+bindsym $mod+p exec scrot -e 'mv $f ~/Pictures/'
