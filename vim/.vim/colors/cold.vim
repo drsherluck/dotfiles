@@ -61,10 +61,10 @@ let s:base7 = [ '#F8F8F8', 255 ]
 let s:red     = [ '#ff5555', 1   ]
 let s:orange  = [ '#ffb86c', 173 ]
 let s:yellow  = [ '#ffeaa7', 221 ]
-let s:magenta = [ '#60a3bc', 66  ]
+let s:magenta = [ '#7df9ff', 45  ]
 let s:violet  = [ '#67e6dc', 51  ]
 let s:blue    = [ '#B3E5FC', 80  ]
-let s:cyan    = [ '#1DE9B6', 42  ]
+let s:cyan    = [ '#1DE9B6', 40  ]
 let s:green   = [ '#69F0A3', 84  ]
 
 " Background and foreground
@@ -97,10 +97,10 @@ call s:mh(['Include', 'Macro', 'Define', 'PreProc', 'PreCondit'], s:blue)
 call s:mh(['Constant', 'Number', 'Boolean', 'Float'], s:fg, s:none, ['bold'])
 call s:hi('String',  s:violet, s:none, ['italic'])
 call s:hi('Character', s:violet)
-call s:hi('Type', s:green, s:none, ['bold'])
+call s:hi('Type', s:fg, s:none)
 
 call s:hi('Identifier', s:base7)
-call s:hi('Function', s:green)
+call s:hi('Function', s:magenta)
 call s:hi('Delimiter', s:base7)
 
 call s:hi('SpecialKey', s:base5)

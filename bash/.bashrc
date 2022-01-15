@@ -29,6 +29,7 @@ set_prompt() {
 
 # Set docker host
 export DOCKER_HOST=tcp://127.0.0.1:2375
+export MINIKUBE_IN_STYLE=false
 
 set_prompt
 
@@ -63,3 +64,9 @@ alias glo="git log --oneline"
 # General
 alias update="sudo pacman -Suy"
 
+# neovim
+alias vim="nvim"
+alias retab='vim -s <(echo -e "gg=G\n:retab\nZZ")'
+
+# kubectl
+alias k="kubectl"

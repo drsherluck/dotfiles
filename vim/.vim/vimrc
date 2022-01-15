@@ -5,13 +5,14 @@ set nowrap
 " Use tabs only
 set tabstop=4
 set softtabstop=0 
-set noexpandtab
+set expandtab
 set shiftwidth=4
 
 set nu
 set autoindent
 set smartindent
 set cursorline
+set relativenumber
 
 " Default is 4000ms
 set updatetime=750 
@@ -44,6 +45,7 @@ Plug 'udalov/kotlin-vim'
 "Plug 'jiangmiao/auto-pairs'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'rakr/vim-two-firewatch'
+Plug 'tpope/vim-abolish'
 "Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Initialize plugin system
@@ -96,6 +98,8 @@ set formatoptions+=r
 set formatoptions+=c
 set formatoptions+=o
 set foldmethod=syntax
+
+au BufNewFile,BufRead,BufReadPost *.frag,*.vert,*.fp,*.vp,*.glsl,*.rchit,*.rgen,*.rmiss,*.comp set syntax=c
 
 " Unfold on open
 augroup OpenAllFoldsOnFileOpen

@@ -14,7 +14,7 @@ endif
 " Disable user defined function highlighting for doctol/vim-cpp-enhanced-highlight
 let g:cpp_no_function_highlight=1
 
-set background=dark
+set background=light
 let g:colors_name = 'cold'
 
 
@@ -59,11 +59,11 @@ let s:base6 = [ '#6272A4', 61  ]
 let s:base7 = [ '#F8F8F8', 255 ]
 
 let s:red     = [ '#ff5555', 1   ]
-let s:orange  = [ '#ffb86c', 173 ]
+let s:orange  = [ '#cf222e', 173 ]
 let s:yellow  = [ '#ffeaa7', 221 ]
 let s:magenta = [ '#60a3bc', 66  ]
 let s:violet  = [ '#0fb9b1', 51  ]
-let s:blue    = [ '#0fb9b1', 80  ]
+let s:blue    = [ '#0550ae', 80  ]
 let s:cyan    = [ '#079992', 42  ]
 let s:green   = [ '#20bf6b', 84  ]
 
@@ -87,7 +87,7 @@ call s:hi('Comment', s:base6)
 
 " Keywords
 let s:keywords = ['Statement', 'Conditional', 'Repeat', 'Label', 'Operator', 'Exception', 'Keyword']
-call s:mh(s:keywords,  s:cyan, s:none, ['bold'])
+call s:mh(s:keywords,  s:orange, s:none, ['bold'])
 
 " Includes and definition
 call s:mh(['StorageClass', 'Structure', 'Typedef'], s:cyan, s:none, ['bold'])

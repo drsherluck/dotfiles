@@ -1,4 +1,4 @@
-exec_always --no-startup-id feh --bg-fill ~/Pictures/backgrounds/tron.png
+exec_always --no-startup-id feh --bg-center ~/Pictures/backgrounds/samurai.jpg
 # exec_always --no-startup-id ~/hiticker -s XVGBTC
 exec --no-startup-id redshift -l 52:4.37
 exec compton
@@ -42,6 +42,10 @@ font pango:Inconsolata, FontAwesome 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn't scale on retina/hidpi displays.
 
+# automatic floating for development engine
+#for_window [title="Engine"] floating enable
+#for_window [title="Engine"] move to workspace 5
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenien10
 set $up k
@@ -79,7 +83,6 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
