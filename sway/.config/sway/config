@@ -1,43 +1,10 @@
-exec_always --no-startup-id feh --bg-center ~/Pictures/bg.jpg
-# exec_always --no-startup-id ~/hiticker -s XVGBTC
-# exec --no-startup-id redshift -l 52:4.37
-# exec compton
+exec wl-paste -t text --watch clipman store --no-persist
 
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
-
-# hide_edge_borders both
-set $gap_width 0 # change to bigger later
-for_window [class="^.*"] border pixel 2
-gaps inner $gap_width
-gaps outer $gap_width
+output * bg ~/Pictures/bg.jpg fill
 
 set $mod Mod4
-
-bindsym $mod+o exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
-    '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
-        i3-msg gaps inner current set 0; \
-	i3-msg gaps outer current set 0; \
-    else \
-        i3-msg gaps inner current set $gap_width; \
-	i3-msg gaps outer current set $gap_width; \
-    fi"
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
 font pango:Inconsolata, FontAwesome 8
-
-# automatic floating for development engine
-#for_window [title="Engine"] floating enable
-#for_window [title="Engine"] move to workspace 5
+for_window [class="^.*"] border pixel 2
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenien10
@@ -60,6 +27,10 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+$left focus left
@@ -162,14 +133,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+i exec swaylock
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym $left       resize shrink width 10 px or 10 ppt
         bindsym $down       resize grow height 10 px or 10 ppt
         bindsym $up         resize shrink height 10 px or 10 ppt
@@ -203,10 +170,10 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #424242
 
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
+    font pango:mononoki Bold 8
 	position top 
+    status_command gobar
 	colors {
 		background #17181f
 		statusline #f8f8f8
@@ -217,17 +184,20 @@ bar {
 		inactive_workspace	#1a1a1a #1a1a1a #ffffff
 		urgent_workspace 	#ff3838 #ff4d4d #ffffff	
 	}
-    status_command gobar
 }
 
 # Volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+# Mic toggle
+bindsym XF86AudioMicMute exec pactl set-sink-mute @DEFAULT_SOURCE@ toggle
+# Play/pause
+bindsym XF86AudioPlay exec playerctl play-pause
 
-# Screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 2
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2
+# Brightness
+bindsym XF86MonBrightnessUp exec sudo light -A 10
+bindsym XF86MonBrightnessDown exec sudo light -U 10
 
 # Printscreen
 bindsym $mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png

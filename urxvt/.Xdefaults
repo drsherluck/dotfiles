@@ -1,0 +1,53 @@
+!! urxvt.perl-ext-common: selection-to-clipboard
+
+!! colors
+*.foreground:  #f8f8f8
+*.background:  #17181f
+*.cursorColor: #f8f8f8
+*.color0:  #17181f
+*.color8:  #808e9b
+*.color1:  #ff6b81
+*.color9:  #ff4757
+*.color2:  #55efc4
+*.color10: #32ff7e
+*.color3:  #fffa65
+*.color11: #fff200
+*.color4:  #60a3bc
+*.color12: #a29bfe
+*.color5:  #cd84f1
+*.color13: #fd79a8
+*.color6:  #1de9b6
+*.color14: #b3e5fc
+*.color7:  #f8f8f8
+*.color15: #efefef
+
+!! appearance
+urxvt.font:            xft:Consolas:style=Regular:size=10
+urxvt.boldFont:        xft:Consolas:style=Bold:size=10
+urxvt.italicFont:      xft:Consolas:style=Italic:size=10
+urxvt.boldItalicFont:  xft:Consolas:style=Bold Italic:size=10
+urxvt.lineSpace:       0
+urxvt.letterSpac:      0
+urxvt.scrollBar:       false
+urxvt.scrollBar_right: false
+urxvt.saveline:        2048
+urxvt.internalBorder:  12
+urxvt.cursorBlink:     true
+urxvt.cursorUnderline: false
+urxvt.iso14755:        false
+
+!! font resize
+urxvt.resize-font.step:  1
+urxvt.keysym.C-Down:     resize-font:smaller
+urxvt.keysym.C-Up:       resize-font:bigger
+urxvt.keysym.C-equal:    resize-font:reset
+urxvt.keysym.C-question: resize-font:show
+
+!! urls
+urvxt.urlLauncher:   chromium
+urxvt.underlineURLs: true
+urxvt.urlButton:     1
+
+!! copypaste
+urxvt.keysym.Shift-Control-V: eval:paste_clipboard
+urxvt.keysym.Shift-Control-C: eval:selection_to_clipboard

@@ -18,7 +18,7 @@ set relativenumber
 set updatetime=750 
 
 " Copy to main clipboard
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Some color hack
 if &term =~ '256-color'

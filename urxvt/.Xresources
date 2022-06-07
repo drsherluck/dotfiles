@@ -1,0 +1,27 @@
+
+!! appearance
+urxvt.font: xft:Consolas:style=Regular:size=15
+urxvt.boldFont: xft:Consolas:style=Bold:size=15
+urxvt.italicFont: xft:Consolas:style=Italic:size=15
+urxvt.boldItalicFont: xft:Consolas:style=Bold Italic:size=15
+urxvt.lineSpace: 0
+urxvt.letterSpac: 0
+urxvt.scrollBar: false
+urxvt.scrollBar_right: false
+urxvt.saveline: 2048
+urxvt.internalBorder: 12
+urxvt.cursorBlink: true
+urxvt.cursorUnderline: false
+urxvt.iso14755: false
+
+!! font resize
+urxvt.resize-font.step:  1
+urxvt.keysym.C-Down:     resize-font:smaller
+urxvt.keysym.C-Up:       resize-font:bigger
+urxvt.keysym.C-equal:    resize-font:reset
+urxvt.keysym.C-question: resize-font:show
+
+!! urls
+urvxt.urlLauncher:   chromium
+urxvt.underlineURLs: true
+urxvt.urlButton:     1
