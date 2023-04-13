@@ -1,6 +1,8 @@
 exec wl-paste -t text --watch clipman store --no-persist
+exec foot --server
 
-output * bg ~/Pictures/bg.jpg fill
+output * bg ~/Pictures/vagabond.jpg fill
+output "Goldstar Company Ltd LG HDR 4K 0x00001C8A" scale 1.2
 
 set $mod Mod4
 font pango:Inconsolata, FontAwesome 8
@@ -17,7 +19,8 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec footclient
 
 # start browser
 bindsym $mod+b exec chromium
@@ -31,6 +34,9 @@ bindsym $mod+d exec rofi -show run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+for_window [title="Final Project"] floating enable
 
 # change focus
 bindsym $mod+$left focus left
@@ -172,17 +178,17 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 bar {
     font pango:mononoki Bold 8
-	position top 
+	position top
     status_command gobar
 	colors {
 		background #17181f
 		statusline #f8f8f8
 		separator  #4b5262
-							 # br     bg      fg 
+							 # br     bg      fg
 		focused_workspace 	#ffffff #ffffff #000000
 		active_workspace 	#1a1a1a #1a1a1a #ffffff
 		inactive_workspace	#1a1a1a #1a1a1a #ffffff
-		urgent_workspace 	#ff3838 #ff4d4d #ffffff	
+		urgent_workspace 	#ff3838 #ff4d4d #ffffff
 	}
 }
 
@@ -200,6 +206,6 @@ bindsym XF86MonBrightnessUp exec sudo light -A 10
 bindsym XF86MonBrightnessDown exec sudo light -U 10
 
 # Printscreen
-bindsym $mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 bindsym $mod+Control+s exec maim -s ~/Pictures/screenshots/$(date +%F-%T).png
 bindsym $mod+p exec scrot -e 'mv $f ~/Pictures/'

@@ -1,5 +1,6 @@
 ignore-empty-password
 font=Consolas
+color=000000
 
 clock
 timestr=%R
