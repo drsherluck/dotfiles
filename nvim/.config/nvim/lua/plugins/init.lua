@@ -13,16 +13,20 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require('lazy').setup({
     {
-	"nvim-treesitter/nvim-treesitter",
+        "nvim-treesitter/nvim-treesitter",
     	run = ":TSUpdate",
+        config = function()
+            require("plugins.config.treesitter")
+        end,
     },
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         dependencies = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
+            {'neovim/nvim-lspconfig'}, -- Required
+            {                                      
+                -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
@@ -34,9 +38,30 @@ require('lazy').setup({
             {'hrsh7th/cmp-nvim-lsp'}, -- Required
             {'L3MON4D3/LuaSnip'},     -- Required
         },
-	config = function()
-		require("plugins.config.lsp")
-	end,
+        config = function()
+            require("plugins.config.lsp")
+        end,
     },
-    {"itchyny/lightline.vim"}
+    { 
+        'nvim-lualine/lualine.nvim',
+        config = function()
+            require('lualine').setup {
+                options = {
+                    theme = "catppuccin"
+                }
+            }
+        end
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = "0.1.1",
+        dependencies = {'nvim-lua/plenary.nvim'},
+    },
+    { 
+        "catppuccin/nvim",
+        name = "catppuccin",
+        config = function()
+            require("plugins.config.colors")
+        end
+    },
 })
