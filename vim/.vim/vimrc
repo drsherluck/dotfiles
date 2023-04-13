@@ -4,7 +4,7 @@ set nowrap
 
 " Use tabs only
 set tabstop=4
-set softtabstop=0 
+set softtabstop=0
 set expandtab
 set shiftwidth=4
 
@@ -15,7 +15,7 @@ set cursorline
 set relativenumber
 
 " Default is 4000ms
-set updatetime=750 
+set updatetime=750
 
 " Copy to main clipboard
 set clipboard+=unnamedplus
@@ -47,6 +47,9 @@ Plug 'cormacrelf/vim-colors-github'
 Plug 'rakr/vim-two-firewatch'
 Plug 'tpope/vim-abolish'
 "Plug 'octol/vim-cpp-enhanced-highlight'
+
+Plug 'jvirtanen/vim-hcl'
+Plug 'bfrg/vim-cpp-modern'
 
 " Initialize plugin system
 call plug#end()
@@ -84,8 +87,8 @@ set termguicolors
 colo cold
 
 " Set the background to transparent (match terminal)
-"hi! Normal guibg=NONE ctermbg=NONE
-"hi! NonTest guibg=NONE ctermbg=NONE
+hi! Normal guibg=NONE ctermbg=NONE
+hi! NonTest guibg=NONE ctermbg=NONE
 
 " To bulk uppercase files
 " \ls | vim -
@@ -101,15 +104,26 @@ set foldmethod=syntax
 
 au BufNewFile,BufRead,BufReadPost *.frag,*.vert,*.fp,*.vp,*.glsl,*.rchit,*.rgen,*.rmiss,*.comp set syntax=c
 
+autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * silent $put _ | $;?\(^\s*$\)\@!?+1,$d
+
 " Unfold on open
 augroup OpenAllFoldsOnFileOpen
 	autocmd!
 	autocmd BufRead * normal zR
 augroup END
 
+" syntax based on ext
+augroup terraform_syntax
+    au!
+    autocmd BufNewFile,BufRead *.tf set syntax=hcl
+    autocmd BufNewFile,BufRead *.tf set shiftwidth=2
+    autocmd BufNewFile,BufRead *.sh set shiftwidth=2
+augroup END
+
 "imap jk <ESC>
 
-" No cheating 
+" No cheating
 " Only use hjkl
 inoremap <Up>    <Nop>
 inoremap <Down>  <Nop>
@@ -120,4 +134,3 @@ noremap <Up>    <Nop>
 noremap <Down>  <Nop>
 noremap <Right> <Nop>
 noremap <Left>  <Nop>
-
