@@ -70,3 +70,4 @@ alias retab='vim -s <(echo -e "gg=G\n:retab\nZZ")'
 
 # kubectl
 alias k="kubectl"
+. "$HOME/.cargo/env"
