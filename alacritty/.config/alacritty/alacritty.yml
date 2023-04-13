@@ -1,0 +1,37 @@
+font:
+  normal:
+    family: Consolas Nerd Font Mono
+  size: 9
+
+window:
+  padding:
+    x: 6
+    y: 0
+
+cursor:
+  style:
+    blinking: Always
+  blink_timeout: 0
+
+colors:
+  primary:
+    foreground: '0xf8f8f8'
+    background: '0x17181f'
+  normal:
+    black:  '0x17181f'
+    red: '0xff6b81'
+    green: '0x55efc4'
+    yellow:  '0xfffa65'
+    blue:  '0x60a3bc'
+    magenta:  '0xcd84f1'
+    cyan:  '0x1de9b6'
+    white:  '0xf8f8f8'
+  bright:
+    black:  '0x808e9b'
+    red:  '0xff4757'
+    green: '0x32ff7e'
+    yellow: '0xfff200'
+    blue: '0xa29bfe'
+    magenta: '0xfd79a8'
+    cyan: '0xb3e5fc'
+    white: '0xefefef'

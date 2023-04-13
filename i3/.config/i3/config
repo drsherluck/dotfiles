@@ -15,7 +15,7 @@ exec_always --no-startup-id feh --bg-center ~/Pictures/backgrounds/samurai.jpg
 #
 
 # hide_edge_borders both
-set $gap_width 0 
+set $gap_width 0
 for_window [class="^.*"] border pixel 2
 gaps inner $gap_width
 gaps outer $gap_width
@@ -25,10 +25,10 @@ set $mod Mod4
 bindsym $mod+o exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
     '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
         i3-msg gaps inner current set 0; \
-	i3-msg gaps outer current set 0; \
+    i3-msg gaps outer current set 0; \
     else \
         i3-msg gaps inner current set $gap_width; \
-	i3-msg gaps outer current set $gap_width; \
+    i3-msg gaps outer current set $gap_width; \
     fi"
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -192,11 +192,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # colors
-set $bg-color		 		#67e6dc
-set $inactive-bg-color   	#2f343f
-set $text-color				#f3f4f5
-set $inactive-text-color 	#676E7D
-set $urgent-bg-color		#E53935
+set $bg-color            #67e6dc
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
 
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          $bg-color
@@ -209,17 +209,17 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # finds out, if available)
 bar {
     font pango:Consolas, FontAwesome 8
-	position top 
-	colors {
-		background #17181f
-		statusline #f8f8f8
-		separator  #4b5262
-							 # br     bg      fg 
-		focused_workspace 	#ffffff #ffffff #000000
-		active_workspace 	#1a1a1a #1a1a1a #ffffff
-		inactive_workspace	#1a1a1a #1a1a1a #ffffff
-		urgent_workspace 	#ff3838 #ff4d4d #ffffff	
-	}
+    position top
+    colors {
+        background #17181f
+        statusline #f8f8f8
+        separator  #4b5262
+                           # br     bg      fg
+        focused_workspace  #ffffff #ffffff #000000
+        active_workspace   #1a1a1a #1a1a1a #ffffff
+        inactive_workspace #1a1a1a #1a1a1a #ffffff
+        urgent_workspace   #ff3838 #ff4d4d #ffffff
+    }
     status_command gobar
 }
 
