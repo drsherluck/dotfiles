@@ -46,9 +46,11 @@ fi
 if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
 fi
+clear
 
 # set black color background after 6pm
-ps -aux \
+which swaymsg > /dev/null \
+  && ps -aux \
   | grep -q sway && [[ $(date +%H) -ge 17 || $(date +%H) -le 7 ]] \
   && swaymsg "output * bg #000000 solid_color"
 
