@@ -1,4 +1,4 @@
-exec_always --no-startup-id feh --bg-center ~/Pictures/bg.jpg
+exec_always --no-startup-id feh --bg-center ~/Pictures/backgrounds/samurai.jpg
 # exec_always --no-startup-id ~/hiticker -s XVGBTC
 # exec --no-startup-id redshift -l 52:4.37
 # exec compton
@@ -15,7 +15,7 @@ exec_always --no-startup-id feh --bg-center ~/Pictures/bg.jpg
 #
 
 # hide_edge_borders both
-set $gap_width 0 # change to bigger later
+set $gap_width 0 
 for_window [class="^.*"] border pixel 2
 gaps inner $gap_width
 gaps outer $gap_width
@@ -38,6 +38,8 @@ font pango:Inconsolata, FontAwesome 8
 # automatic floating for development engine
 #for_window [title="Engine"] floating enable
 #for_window [title="Engine"] move to workspace 5
+for_window [title="Final Project"] floating enable
+#for_window [title="Engine"] move to workspace 5
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenien10
@@ -50,7 +52,7 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # start browser
 bindsym $mod+b exec chromium
@@ -206,6 +208,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    font pango:Consolas, FontAwesome 8
 	position top 
 	colors {
 		background #17181f

@@ -2,9 +2,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:${HOME}/.local/bin:${HOME}/go/bin:${HOME}/bin"
 export EDITOR=nvim
+export FCEDIT=nvim
 export MINIKUBE_IN_STYLE=false
 export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/.config/gcloud/application_default_credentials.json"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export $(cat ${HOME}/.env | grep -Ev "(^#.*|^$)" | xargs)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -37,6 +39,7 @@ terraform-targets () {
     | sed " s/^# /-target '/; s/ $/'/; "
 }
 
+<<<<<<< Updated upstream
 # Start ssh-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent -t 8h > "$XDG_RUNTIME_DIR/ssh-agent.env"
@@ -50,4 +53,4 @@ ps -aux \
   | grep -q sway && [[ $(date +%H) -ge 17 || $(date +%H) -le 7 ]] \
   && swaymsg "output * bg #000000 solid_color"
 
-eval "$(starship init zsh)"
+eval $(starship init zsh)

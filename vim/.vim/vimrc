@@ -50,7 +50,6 @@ Plug 'tpope/vim-abolish'
 
 Plug 'jvirtanen/vim-hcl'
 Plug 'bfrg/vim-cpp-modern'
-
 " Initialize plugin system
 call plug#end()
 
@@ -102,7 +101,7 @@ set formatoptions+=c
 set formatoptions+=o
 set foldmethod=syntax
 
-au BufNewFile,BufRead,BufReadPost *.frag,*.vert,*.fp,*.vp,*.glsl,*.rchit,*.rgen,*.rmiss,*.comp set syntax=c
+au BufNewFile,BufRead,BufReadPost *.frag,*.vert,*.fp,*.vp,*.glsl,*.rchit,*.rgen,*.rmiss,*.comp,*.shader set syntax=c
 
 autocmd BufWritePre * :%s/\s\+$//e
 " autocmd BufWritePre * silent $put _ | $;?\(^\s*$\)\@!?+1,$d

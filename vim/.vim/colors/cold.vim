@@ -49,7 +49,7 @@ endfunction
 
 
 " #0a192d pretty good
-let s:base0 = [ '#17181f', 232 ]
+let s:base0 = [ '#17181f', 233 ]
 let s:base1 = [ '#191A21', 234 ]
 let s:base2 = [ '#21222C', 235 ]
 let s:base3 = [ '#282A36', 236 ]
