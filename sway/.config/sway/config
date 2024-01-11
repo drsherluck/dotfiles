@@ -22,7 +22,7 @@ floating_modifier $mod
 # bindsym $mod+Return exec urxvt
 bindsym $mod+Return exec footclient
 
-# start browser
+# start browser --enable-features=UseOzonePlatform --enable-gpu -ozon-platform=wayland
 bindsym $mod+b exec chromium
 
 # kill focused window
@@ -36,7 +36,7 @@ bindsym $mod+d exec rofi -show run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 
-for_window [title="Final Project"] floating enable
+for_window [title="blocks"] floating enable
 
 # change focus
 bindsym $mod+$left focus left
@@ -209,3 +209,6 @@ bindsym XF86MonBrightnessDown exec sudo light -U 10
 bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 bindsym $mod+Control+s exec maim -s ~/Pictures/screenshots/$(date +%F-%T).png
 bindsym $mod+p exec scrot -e 'mv $f ~/Pictures/'
+
+# Mirror screen
+bindsym $mod+m exec wl-mirror "eDP-1"
