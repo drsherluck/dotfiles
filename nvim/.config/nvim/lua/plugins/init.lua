@@ -1,3 +1,5 @@
+require("plugins.set")
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -14,7 +16,7 @@ vim.opt.runtimepath:prepend(lazypath)
 require('lazy').setup({
     {
         "nvim-treesitter/nvim-treesitter",
-    	run = ":TSUpdate",
+    	build = ":TSUpdate",
         config = function()
             require("plugins.config.treesitter")
         end,
@@ -28,9 +30,7 @@ require('lazy').setup({
             {                                      
                 -- Optional
                 'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
+                build = ":MasonUpdate",
             },
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
             -- Autocompletion
@@ -46,16 +46,16 @@ require('lazy').setup({
         'nvim-lualine/lualine.nvim',
         config = function()
             require('lualine').setup {
-                options = {
-                    theme = "catppuccin"
-                }
+                options = {theme= "catppuccin"}
             }
         end
     },
     {
-        'nvim-telescope/telescope.nvim',
-        tag = "0.1.1",
-        dependencies = {'nvim-lua/plenary.nvim'},
+        'nvim-telescope/telescope.nvim', tag = "0.1.5",
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        keys = {
+            {"<leader>ff", function() require("telescope.builtin").find_files() end},
+        }
     },
     { 
         "catppuccin/nvim",
@@ -64,4 +64,9 @@ require('lazy').setup({
             require("plugins.config.colors")
         end
     },
+    {
+        'kaarmu/typst.vim',
+        ft = "typst",
+        lazy = false,
+    }
 })
